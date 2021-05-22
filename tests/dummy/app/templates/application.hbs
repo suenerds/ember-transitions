@@ -1,5 +1,36 @@
-{{page-title "Dummy"}}
+{{page-title "EmberTransition"}}
 
-<h2 id="title">Welcome to Ember</h2>
+<button {{on 'click' this.toggleShow}}>
+  Show Toggle
+</button>
 
-{{outlet}}
+<Transition @show={{this.show}} as |Child| >
+   <Child
+  @enter="transform transition ease-in-out duration-1000 sm:duration-700"
+  @enter-from="opacity-0"
+  @enter-to="opacity-1"
+  @leave="transform transition ease-in-out duration-1000 sm:duration-700"
+  @leave-from="opacity-1"
+  @leave-to="opacity-0"
+  >
+    <div style="background-color: limegreen">
+    <h1>Hello World</h1>
+    </div>
+  </Child>
+
+  <h1> Hello World </h1>
+  <Child
+  @enter="transform transition ease-in-out duration-500 sm:duration-700"
+  @enter-from="translate-x-full"
+  @enter-to="translate-x-0"
+  @leave="transform transition ease-in-out duration-500 sm:duration-700"
+  @leave-from="translate-x-0"
+  @leave-to="translate-x-full"
+  >
+    <div style="background-color: limegreen">
+    <h1>Hello World</h1>
+    </div>
+  </Child>
+
+
+</Transition>

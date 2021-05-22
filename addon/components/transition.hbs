@@ -1,0 +1,6 @@
+{{#if this.isShowing}}
+<div
+  ...attributes>
+  {{yield  (component 'transition/child' parent=this show=@show)}}
+</div>
+{{/if}}

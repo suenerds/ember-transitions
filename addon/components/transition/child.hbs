@@ -1,0 +1,17 @@
+{{#if @show}}
+<div
+  {{css-transition
+    enterActiveClass=@enter
+    enterClass=@enter-from
+    enterToClass=@enter-to
+
+    leaveActiveClass=@leave
+    leaveClass=@leave-from
+    leaveToClass=@leave-to
+
+    didTransitionOut=this.didTransitionOut
+  }}
+>
+  {{yield}}
+</div>
+{{/if}}
